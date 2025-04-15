@@ -2,7 +2,7 @@
     Doll Dress Up Game
 
 ## Repository:
-    link
+    lhttps://github.com/easy-briezy/Poag_Brianna_FinalProject_PFDA
 
 ## Description
     A simple dress up game made with pygame and pillow. This project is relevant to digital media because it is a visual interactive game utilizing digital images.
