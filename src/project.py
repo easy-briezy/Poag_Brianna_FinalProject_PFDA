@@ -1,10 +1,11 @@
 #import pillow and pygame
-#import pillow
+from PIL import Image
 import pygame
 
 def main():
 
-
+    
+    
     #pyagme
     #screen (images I made)
     #placement of clickable icons
@@ -12,18 +13,28 @@ def main():
     #full screen 
     pygame.init()
 
-    width, height = pygame.display.Info().current_w, pygame.display.Info().current_h
-    width = max(width, 1920)
-    height = max(height, 1080)
-    screen = pygame.display.set_mode((width, height), pygame.FULLSCREEN)
+    #width, height = pygame.display.Info().current_w, pygame.display.Info().current_h
+    #width = max(width, 1920)
+    #height = max(height, 1080)
+    screen_width = 800
+    screen_height = 600
+    screen = pygame.display.set_mode((screen_width, screen_height))
+    
+    #screen = pygame.display.set_mode((width, height), pygame.FULLSCREEN)
 
     pygame.display.set_caption('Dress Up')
 
+    with Image.open('images/test_base.png') as img:
+        print(img.size)
+        img_resized = img.resize((800, 600))
         #exit button
 
     #store images
         #bg image
-    base_image = pygame.image.load('images/test_base.png')
+    base_resized = pygame.image.load(img_resized)
+    #base_image = pygame.transform.scale(base_image, (width, height))
+
+
     #clothes list?
     #hair list?
 
@@ -34,11 +45,19 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
+        
+        
+
+        
+
         #make base
-        screen.blit(base_image, (0,0))
-        pygame.display.flip()
+        screen.blit(base_resized, (0,0))
+        pygame.display.update()
+        #pygame.display.flip()
 
     pygame.quit()
+
+
 
 #image changer/loader
     #clothes changer
