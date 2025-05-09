@@ -26,12 +26,12 @@ def main():
 
     with Image.open('images/test_base.png') as img:
         print(img.size)
-        img_resized = img.resize((800, 600))
+
         #exit button
 
     #store images
         #bg image
-    base_resized = pygame.image.load(img_resized)
+    base_image = pygame.image.load('images/test_base.png')
     #base_image = pygame.transform.scale(base_image, (width, height))
 
 
@@ -51,7 +51,7 @@ def main():
         
 
         #make base
-        screen.blit(base_resized, (0,0))
+        screen.blit(base_image, (0,0))
         pygame.display.update()
         #pygame.display.flip()
 
