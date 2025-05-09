@@ -2,6 +2,8 @@
 from PIL import Image
 import pygame
 
+
+
 def main():
 
     
@@ -13,32 +15,30 @@ def main():
     #full screen 
     pygame.init()
 
-    #width, height = pygame.display.Info().current_w, pygame.display.Info().current_h
-    #width = max(width, 1920)
-    #height = max(height, 1080)
+    #screen
     screen_width = 800
     screen_height = 600
     screen = pygame.display.set_mode((screen_width, screen_height))
     
-    #screen = pygame.display.set_mode((width, height), pygame.FULLSCREEN)
 
     pygame.display.set_caption('Dress Up')
 
-    with Image.open('images/test_base.png') as img:
-        print(img.size)
 
         #exit button
 
     #store images
-        #bg image
-    base_image = pygame.image.load('images/test_base.png')
-    #base_image = pygame.transform.scale(base_image, (width, height))
+        #clothes list?
+        #hair list?
 
+    
 
-    #clothes list?
-    #hair list?
+    #load and store each image option
+    base_image = pygame.image.load('images/test_base.png').convert_alpha()
+    dress =  pygame.image.load('images/clothes/dress_test.png').convert_alpha()
+    suit = pygame.image.load('images/clothes/suit_test.png').convert_alpha()
+    curly = pygame.image.load('images/hair/curly_hair_test.png').convert_alpha()
+    straight = pygame.image.load('images/hair/straight_hair_test.png').convert_alpha()
 
-    #loop for base image bg
     running = True
     while running:
         for event in pygame.event.get():
@@ -47,13 +47,10 @@ def main():
 
         
         
-
-        
-
-        #make base
         screen.blit(base_image, (0,0))
+        screen.blit(clothes_picker(clothes_choice), (0,0))
         pygame.display.update()
-        #pygame.display.flip()
+    
 
     pygame.quit()
 
@@ -67,6 +64,8 @@ def main():
 #mouse click icon choice
 #the clicked choice is inputed into the matching item category image changer
 
+def clothes_picker(clothes_choice):
+    
 
 
 
