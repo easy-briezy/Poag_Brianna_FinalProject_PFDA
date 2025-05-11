@@ -35,6 +35,8 @@ suit = pygame.image.load('images/clothes/suit_test.png').convert_alpha()
 curly = pygame.image.load('images/hair/curly_hair_test.png').convert_alpha()
 straight = pygame.image.load('images/hair/straight_hair_test.png').convert_alpha()
 
+
+
 class Button():
     def __init__(self, x, y, image, scale):
         width = image.get_width()
@@ -53,9 +55,9 @@ class Button():
                 self.clicked = True
                 results = True
 
-        if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
-            self.clicked = True
-            results = True
+
+        if pygame.mouse.get_pressed()[0] == 0:
+            self.clicked = False
 
         screen.blit(self.image, (self.rect.x, self.rect.y))
 
@@ -64,10 +66,18 @@ class Button():
 
 
 exit_icon =  Button(100, 500, exit_image, 0.1)
+dress_icon = Button(100, 100, dress, 1)
 
+#def clothes_picker(clothes_choice):
+    #dress
+    #suit
+
+#def hair_picker(hair_choice):
+    #curly
+    #straight
 
 def main():
-    
+    clicked_clothes = None
     #pyagme
     #screen (images I made)
     #placement of clickable icons
@@ -89,10 +99,9 @@ def main():
 
 
     running = True
+    show_clothes = False
+
     while running:
-
-
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -101,9 +110,20 @@ def main():
         
         screen.blit(base_image, (0,0))
 
+        if dress_icon.draw(screen):
+            clicked_clothes = dress
+            show_clothes = True
+           # screen.blit(dress,(0,0))
+
+
+
         if exit_icon.draw(screen):
             print('EXIT')
             running = False
+
+        if show_clothes:
+            screen.blit(clicked_clothes, (0, 0)) #dress could be a def clothes_picker(chosen_clothes) ex.
+            #screen.blit(clothes_picker(clicked_clothes))
         #screen.blit(clothes_picker(clothes_choice), (0,0))
         pygame.display.update()
     
@@ -120,13 +140,6 @@ def main():
 #mouse click icon choice
 #the clicked choice is inputed into the matching item category image changer
 
-#def clothes_picker(clothes_choice):
-    #dress
-    #suit
-
-#def hair_picker(hair_choice):
-    #curly
-    #straight
 
 
 
