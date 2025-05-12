@@ -3,16 +3,6 @@ from PIL import Image
 import pygame
 #import button
 
-#def store_images():
-   # base_image = pygame.image.load('images/test_base.png').convert_alpha()
-
-    #clothes list
-    #dress =  pygame.image.load('images/clothes/dress_test.png').convert_alpha()
-    #suit = pygame.image.load('images/clothes/suit_test.png').convert_alpha()
-
-    #hair list
-    #curly = pygame.image.load('images/hair/curly_hair_test.png').convert_alpha()
-    #straight = pygame.image.load('images/hair/straight_hair_test.png').convert_alpha()
 
 #screen
 screen_width = 800 #make into constant
@@ -24,16 +14,37 @@ exit_image  = pygame.image.load('images/exit.png').convert_alpha()
 
     
 
-
+#load images
 base_image = pygame.image.load('images/test_base.png').convert_alpha()
 
-#clothes list
-dress =  pygame.image.load('images/clothes/dress_test.png').convert_alpha()
-suit = pygame.image.load('images/clothes/suit_test.png').convert_alpha()
+#clothes images
+overalls =  pygame.image.load('images/clothes/overalls_test.png').convert_alpha()
+sweater = pygame.image.load('images/clothes/sweater_test.png').convert_alpha()
 
 #hair list
-curly = pygame.image.load('images/hair/curly_hair_test.png').convert_alpha()
-straight = pygame.image.load('images/hair/straight_hair_test.png').convert_alpha()
+curly = pygame.image.load('images/hair/curly_hair.png').convert_alpha()
+straight = pygame.image.load('images/hair/straight_hair.png').convert_alpha()
+thick = pygame.image.load('images/hair/thick_hair_test.png').convert_alpha()
+wavy = pygame.image.load('images/hair/wavy_hair_test.png').convert_alpha()
+
+dark = pygame.image.load('images/skin/skin_d_hair.png').convert_alpha()
+medium = pygame.image.load('images/skin/skin_m.png').convert_alpha()
+light = pygame.image.load('images/skin/skin_l.png').convert_alpha()
+
+overalls =  pygame.image.load('images/clothes/overalls_test.png').convert_alpha()
+sweater = pygame.image.load('images/clothes/sweater_test.png').convert_alpha()
+
+#hair list
+curly_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
+straight_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
+thick_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
+wavy_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
+
+dark_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
+medium_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
+light_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
+
+
 
 
 
@@ -118,7 +129,6 @@ def main():
 
 
         if exit_icon.draw(screen):
-            print('EXIT')
             running = False
 
         if show_clothes:
