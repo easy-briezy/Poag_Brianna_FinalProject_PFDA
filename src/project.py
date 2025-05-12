@@ -5,44 +5,50 @@ import pygame
 
 
 #screen
-screen_width = 800 #make into constant
-screen_height = 600 #make into a constant not in main
+screen_width = 800 
+screen_height = 600 
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('Dress Up')
 
-exit_image  = pygame.image.load('images/exit.png').convert_alpha()
+
 
     
 
-#load images
-base_image = pygame.image.load('images/test_base.png').convert_alpha()
+#base images
+base_image = pygame.image.load('images/base.png').convert_alpha()
+exit_image  = pygame.image.load('images/exit.png').convert_alpha()
+menu = pygame.image.load('images/menu.png').convert_alpha()
 
 #clothes images
-overalls =  pygame.image.load('images/clothes/overalls_test.png').convert_alpha()
-sweater = pygame.image.load('images/clothes/sweater_test.png').convert_alpha()
+overalls =  pygame.image.load('images/clothes/overalls.png').convert_alpha()
+sweater = pygame.image.load('images/clothes/sweater.png').convert_alpha()
 
 #hair list
 curly = pygame.image.load('images/hair/curly_hair.png').convert_alpha()
 straight = pygame.image.load('images/hair/straight_hair.png').convert_alpha()
-thick = pygame.image.load('images/hair/thick_hair_test.png').convert_alpha()
-wavy = pygame.image.load('images/hair/wavy_hair_test.png').convert_alpha()
+thick = pygame.image.load('images/hair/thick_hair.png').convert_alpha()
+wavy = pygame.image.load('images/hair/wavy_hair.png').convert_alpha()
 
-dark = pygame.image.load('images/skin/skin_d_hair.png').convert_alpha()
+#skin list
+dark = pygame.image.load('images/skin/skin_d.png').convert_alpha()
 medium = pygame.image.load('images/skin/skin_m.png').convert_alpha()
 light = pygame.image.load('images/skin/skin_l.png').convert_alpha()
 
-overalls =  pygame.image.load('images/clothes/overalls_test.png').convert_alpha()
-sweater = pygame.image.load('images/clothes/sweater_test.png').convert_alpha()
 
-#hair list
-curly_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
-straight_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
-thick_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
-wavy_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
+#clothes icons
+overalls_icon =  pygame.image.load('images/icon/overalls_icon.png').convert_alpha()
+sweater_icon = pygame.image.load('images/icon/sweater_icon.png').convert_alpha()
 
-dark_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
-medium_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
-light_icon = pygame.image.load('images/icon/curly_icon.png').convert_alpha()
+#hair icons
+curly_icon = pygame.image.load('images/icon/c_icon.png').convert_alpha()
+straight_icon = pygame.image.load('images/icon/s_icon.png').convert_alpha()
+thick_icon = pygame.image.load('images/icon/t_icon.png').convert_alpha()
+wavy_icon = pygame.image.load('images/icon/w_icon.png').convert_alpha()
+
+#skin icons
+dark_icon = pygame.image.load('images/icon/d_icon.png').convert_alpha()
+medium_icon = pygame.image.load('images/icon/m_icon.png').convert_alpha()
+light_icon = pygame.image.load('images/icon/l_icon.png').convert_alpha()
 
 
 
@@ -76,8 +82,26 @@ class Button():
 
 
 
-exit_icon =  Button(100, 500, exit_image, 0.1)
-dress_icon = Button(100, 100, dress, 1)
+exit_button =  Button(20, 20, exit_image, 1)
+
+#skin buttons
+
+dark_button = Button(300, 450, dark_icon, 1)
+medium_button = Button(420, 450, medium_icon, 1)
+light_button = Button(520, 450, light_icon, 1)
+
+#hair buttons
+curly_button = Button(550, 300, curly_icon, 1)
+wavy_button = Button(550, 300, wavy_icon, 1)
+thick_button = Button(550, 300, thick_icon, 1)
+straight_button = Button(550, 300, straight_icon, 1)
+
+
+#clothes buttons
+sweater_button = Button(100, 300, sweater_icon, 1)
+overalls_button = Button(100, 400, overalls_icon, 1)
+
+
 
 #def clothes_picker(clothes_choice):
     #dress
@@ -87,18 +111,19 @@ dress_icon = Button(100, 100, dress, 1)
     #curly
     #straight
 
+#def icon_placement()
+
 def main():
+    clicked_skin = None
+    clicked_hair = None
     clicked_clothes = None
-    #pyagme
-    #screen (images I made)
-    #placement of clickable icons
-    #mouse controls
-    #full screen 
+
+    
     pygame.init()
 
 
 
-        #exit button
+
 
     #store images
         #clothes list?
@@ -110,6 +135,8 @@ def main():
 
 
     running = True
+    show_skin = False
+    show_hair = False
     show_clothes = False
 
     while running:
@@ -120,21 +147,30 @@ def main():
         
         
         screen.blit(base_image, (0,0))
+        screen.blit(menu, (0,0))
 
-        if dress_icon.draw(screen):
-            clicked_clothes = dress
+
+
+
+
+
+        if overalls_button.draw(screen):
+            clicked_clothes = overalls_icon
+            show_clothes = True
+
+        if sweater_button.draw(screen):
+            clicked_clothes = sweater_icon
             show_clothes = True
            # screen.blit(dress,(0,0))
 
 
-
-        if exit_icon.draw(screen):
+        #exit button
+        if exit_button.draw(screen):
             running = False
 
         if show_clothes:
             screen.blit(clicked_clothes, (0, 0)) #dress could be a def clothes_picker(chosen_clothes) ex.
-            #screen.blit(clothes_picker(clicked_clothes))
-        #screen.blit(clothes_picker(clothes_choice), (0,0))
+
         pygame.display.update()
     
 
