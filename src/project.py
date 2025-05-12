@@ -36,18 +36,18 @@ light = pygame.image.load('images/skin/skin_l.png').convert_alpha()
 
 
 #clothes icons
-overalls_icon =  pygame.image.load('images/icon/overalls_icon.png').convert_alpha()
-sweater_icon = pygame.image.load('images/icon/sweater_icon.png').convert_alpha()
+overalls_icon =  pygame.image.load('images/icon/overalls _icon.png').convert_alpha()
+sweater_icon = pygame.image.load('images/icon/sweater _icon.png').convert_alpha()
 
 #hair icons
-curly_icon = pygame.image.load('images/icon/c_icon.png').convert_alpha()
-straight_icon = pygame.image.load('images/icon/s_icon.png').convert_alpha()
-thick_icon = pygame.image.load('images/icon/t_icon.png').convert_alpha()
-wavy_icon = pygame.image.load('images/icon/w_icon.png').convert_alpha()
+curly_icon = pygame.image.load('images/icon/c _icon.png').convert_alpha()
+straight_icon = pygame.image.load('images/icon/s _icon.png').convert_alpha()
+thick_icon = pygame.image.load('images/icon/t _icon.png').convert_alpha()
+wavy_icon = pygame.image.load('images/icon/w _icon 2.png').convert_alpha()
 
 #skin icons
 dark_icon = pygame.image.load('images/icon/d_icon.png').convert_alpha()
-medium_icon = pygame.image.load('images/icon/m_icon.png').convert_alpha()
+medium_icon = pygame.image.load('images/icon/m _icon.png').convert_alpha()
 light_icon = pygame.image.load('images/icon/l_icon.png').convert_alpha()
 
 
@@ -82,24 +82,24 @@ class Button():
 
 
 
-exit_button =  Button(20, 20, exit_image, 1)
+exit_button =  Button(32, 20, exit_image, 1)
 
 #skin buttons
 
-dark_button = Button(300, 450, dark_icon, 1)
-medium_button = Button(420, 450, medium_icon, 1)
-light_button = Button(520, 450, light_icon, 1)
+dark_button = Button(170, 450, dark_icon, 1)
+medium_button = Button(300, 450, medium_icon, 1)
+light_button = Button(430, 450, light_icon, 1)
 
 #hair buttons
-curly_button = Button(550, 300, curly_icon, 1)
-wavy_button = Button(550, 300, wavy_icon, 1)
-thick_button = Button(550, 300, thick_icon, 1)
-straight_button = Button(550, 300, straight_icon, 1)
+curly_button = Button(647, 135, curly_icon, 1)
+wavy_button = Button(647, 240, wavy_icon, 1)
+thick_button = Button(647, 345, thick_icon, 1)
+straight_button = Button(647, 445, straight_icon, 1)
 
 
 #clothes buttons
-sweater_button = Button(100, 300, sweater_icon, 1)
-overalls_button = Button(100, 400, overalls_icon, 1)
+sweater_button = Button(50, 200, sweater_icon, 1)
+overalls_button = Button(50, 300, overalls_icon, 1)
 
 
 
@@ -122,18 +122,6 @@ def main():
     pygame.init()
 
 
-
-
-
-    #store images
-        #clothes list?
-        #hair list?
-
-    
-
-    #load and store each image option
-
-
     running = True
     show_skin = False
     show_hair = False
@@ -150,45 +138,66 @@ def main():
         screen.blit(menu, (0,0))
 
 
+        #draw skin button icons
+        if dark_button.draw(screen):
+            clicked_skin = dark
+            show_skin = True
+            
+        if medium_button.draw(screen):
+            clicked_skin = medium
+            show_skin = True
 
+        if light_button.draw(screen):
+            clicked_skin = light
+            show_skin = True
 
+        #draw hair button icons
+        if curly_button.draw(screen):
+            clicked_hair = curly
+            show_hair = True
+            
+        if wavy_button.draw(screen):
+            clicked_hair = wavy
+            show_hair = True
 
+        if thick_button.draw(screen):
+            clicked_hair = thick
+            show_hair = True
 
+        if straight_button.draw(screen):
+            clicked_hair = straight
+            show_hair = True
+
+        #draw clothes button icons onto screen
         if overalls_button.draw(screen):
-            clicked_clothes = overalls_icon
+            clicked_clothes = overalls
             show_clothes = True
 
         if sweater_button.draw(screen):
-            clicked_clothes = sweater_icon
+            clicked_clothes = sweater
             show_clothes = True
-           # screen.blit(dress,(0,0))
 
 
         #exit button
         if exit_button.draw(screen):
             running = False
 
+
+        #load chosen player choice onto base image
+        if show_skin:
+            screen.blit(clicked_skin, (0, 0))
+
+        if show_hair:
+            screen.blit(clicked_hair, (0, 0))
+
         if show_clothes:
             screen.blit(clicked_clothes, (0, 0)) #dress could be a def clothes_picker(chosen_clothes) ex.
+
 
         pygame.display.update()
     
 
     pygame.quit()
-
-
-
-#image changer/loader
-    #clothes changer
-    #hair changer
-#image placement
-
-#mouse click icon choice
-#the clicked choice is inputed into the matching item category image changer
-
-
-
-
 
 
 
