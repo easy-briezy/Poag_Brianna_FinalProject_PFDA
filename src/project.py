@@ -106,7 +106,19 @@ overalls_button = Button(50, 300, overalls_icon, 1)
 
 
 def music():
-    song = pygame.mixer.load()
+    pygame.mixer.init()
+
+    pygame.mixer.music.load('music/game_song.mp3')
+
+    #volume
+    pygame.mixer.music.set_volume(0.4)
+
+    song_playing = pygame.mixer.music.play(-1)
+
+    return song_playing
+
+
+
 
 def player_choice():
     choices = {
@@ -155,8 +167,6 @@ def player_choice():
     return choices
 
 
-
-
 def main():
     clicked_skin = None
     clicked_hair = None
@@ -167,7 +177,7 @@ def main():
     
     pygame.init()
 
-
+    music()
     running = True
     #main loop
     while running:
@@ -175,10 +185,12 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
+
         #base images
         screen.blit(base_image, (0,0))
         screen.blit(menu, (0,0))
 
+        #call player choices function
         choice = player_choice()
 
         if choice["show_skin"]:
