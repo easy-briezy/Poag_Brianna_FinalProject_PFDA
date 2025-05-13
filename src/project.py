@@ -111,12 +111,22 @@ def music():
     pygame.mixer.music.load('music/game_song.mp3')
 
     #volume
-    pygame.mixer.music.set_volume(0.4)
+    pygame.mixer.music.set_volume(0.3)
 
     song_playing = pygame.mixer.music.play(-1)
 
     return song_playing
 
+
+def click_sound():
+    pygame.mixer.init()
+
+    click = pygame.mixer.Sound('music/mouse_click.mp3')
+
+    #volume
+    click.set_volume(0.8)
+
+    click.play()
 
 
 
@@ -134,35 +144,44 @@ def player_choice():
     #draw skin button icons
     if dark_button.draw(screen):
         choices["clicked_skin"] = dark
-        choices["show_skin"] = True    
+        choices["show_skin"] = True   
+        click_sound() 
     if medium_button.draw(screen):
         choices["clicked_skin"] = medium
         choices["show_skin"] = True
+        click_sound()
     if light_button.draw(screen):
         choices["clicked_skin"] = light
         choices["show_skin"] = True
+        click_sound()
 
     #draw hair button icons
     if curly_button.draw(screen):
         choices["clicked_hair"] = curly
-        choices["show_hair"] = True   
+        choices["show_hair"] = True 
+        click_sound()  
     if wavy_button.draw(screen):
         choices["clicked_hair"] = wavy
         choices["show_hair"] = True
+        click_sound()
     if thick_button.draw(screen):
         choices["clicked_hair"] = thick
         choices["show_hair"] = True
+        click_sound()
     if straight_button.draw(screen):
         choices["clicked_hair"] = straight
         choices["show_hair"] = True
+        click_sound()
 
     #draw clothes button icons onto screen
     if overalls_button.draw(screen):
         choices["clicked_clothes"] = overalls
         choices["show_clothes"] = True
+        click_sound()
     if sweater_button.draw(screen):
         choices["clicked_clothes"] = sweater
         choices["show_clothes"] = True
+        click_sound()
 
     return choices
 
