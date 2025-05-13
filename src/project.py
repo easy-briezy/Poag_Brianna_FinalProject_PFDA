@@ -1,5 +1,4 @@
 #import pillow and pygame
-from PIL import Image
 import pygame
 
 
@@ -111,7 +110,7 @@ def music():
     pygame.mixer.music.load('music/game_song.mp3')
 
     #volume
-    pygame.mixer.music.set_volume(0.3)
+    pygame.mixer.music.set_volume(0.1)
 
     song_playing = pygame.mixer.music.play(-1)
 
